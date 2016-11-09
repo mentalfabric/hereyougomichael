@@ -1,0 +1,55 @@
+Landing page for reservation:
+  Have a landing page for customers to make reservations.
+  Information required :
+	  Name
+	  Phone
+	  email
+	  No of people
+	  Date
+	  time
+	  Preference (in/out/bar)
+	  Special instructions
+  Reservation to be saved in database with a reservation number (randomly generated)
+
+User kiosk:
+1.	Reservation check-in
+  i)	Name
+  ii)	Phone number
+Note: pull date from database and notify restaurant (additional feature: wait time)
+2.	Walk-in
+  i)	Name
+  ii)	Phone
+  iii)	Email
+  iv)	No of people
+  v)	Preference (in/out/bar)
+  vi)	Special instructions
+Save in database
+
+Restaurant kiosk:
+  One screen split into two
+  Left to show reservations
+  Right to show walkins
+  Summary for list(name, time (to sort) & no of people, special instructions)
+  Button to show restaurant map (to check available tables. Whenever a party is seated at a table it will be disabled. Otherwise its available)
+  On seating a party, set a flag in database for that reservation and remove from display
+
+Database: (firebase)
+2 tables:
+1.	Restaurant tables
+  a)	Table number
+  b)	Type of table (2S, 4S, 6S)
+  c)	Available
+  2.	Reservation table
+  a)	Name
+  b)	Phone
+  c)	Email
+  d)	No of people
+  e)	Date
+  f)	Time
+  g)	Preference (in/out/bar)
+  h)	Type of reservation (reserved or walkin)
+  i)	Special instructions
+  j)	Seated
+  k)	Reservation no
+
+Api:
