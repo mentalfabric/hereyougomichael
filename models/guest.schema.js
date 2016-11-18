@@ -10,6 +10,7 @@ const GuestSchema = new mongoose.Schema({
   numberOfPeople: {type: String, required: true},
   preference: {type: String},
   special_instructions: {type: String},
+  seated: {type: Boolean},
   reserved: {type: Boolean},
   reservation: {
     date: {type: String, required: true},
