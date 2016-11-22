@@ -2,7 +2,6 @@
 
 let mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URI.replace('\r', ''));
-console.log(process.env.PORT);
 let db = mongoose.connection;
 db.on('open', () =>console.log('Database connected.'));
 db.on('error', () =>console.log('Error: Database was not reached.'));
