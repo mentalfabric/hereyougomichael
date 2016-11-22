@@ -2,7 +2,6 @@
 
 let mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URI.replace('\r', ''));
-console.log(process.env.PORT);
 let db = mongoose.connection;
 db.on('open', () =>console.log('Database connected.'));
 db.on('error', () =>console.log('Error: Database was not reached.'));
@@ -19,6 +18,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var tables = require('./routes/tables');
 
 var app = express();
 
@@ -36,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/tables', tables);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

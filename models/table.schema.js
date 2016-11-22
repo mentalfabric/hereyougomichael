@@ -4,9 +4,10 @@ const mongoose = require('mongoose'),
 
 const TableSchema = new mongoose.Schema({
     tableId: {type: Number, required: true, unique: true},
-    numberOfSeats: {type: String, min: 1},
+    numberOfSeats: {type: Number, min: 1},
     section: {type: String, required: true},
-    available: {type: Boolean}
+    timer: {type: Date, default: Date.now()},
+    available: {type: Boolean, default: true}
 });
 
 mongoose.model('Table', TableSchema);

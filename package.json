@@ -1,5 +1,5 @@
 {
-  "name": "justawaitinglist",
+  "name": "hereyougomichael",
   "version": "1.0.0",
   "scripts": {
     "start": "env $(cat .env) nodemon -L ./bin/www"
@@ -12,6 +12,7 @@
     "ejs": "~2.4.1",
     "express": "~4.13.4",
     "lodash": "^4.16.6",
+    "moment": "^2.16.0",
     "mongoose": "^4.6.6",
     "morgan": "~1.7.0",
     "nodemon": "^1.11.0",
