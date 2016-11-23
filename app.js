@@ -6,17 +6,21 @@ let db = mongoose.connection;
 db.on('open', () =>console.log('Database connected.'));
 db.on('error', () =>console.log('Error: Database was not reached.'));
 
-
-require('./models/guests.schema');
 require('./models/guest.schema');
 require('./models/table.schema');
 
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var express = require('express'),
+    path = require('path'),
+    logger = require('morgan'),
+    bodyParser = require('body-parser'),
+    cookieParser = require('cookie-parser'),
+    session = require('express-session'),
+    passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy,
+    Promise = require('bluebird'),
+    comparePassword = Promise.promisify(require('bcrypt').compare),
+    methodOverride = require('method-override'),
+    app = express();
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -47,35 +51,37 @@ app.use('/tables', tables);
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
 
 // error handlers
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
+// if (app.get('env') === 'development') {
+//   app.use(function(err, req, res, next) {
+//     res.status(err.status || 500);
+//     res.render('error', {
+//       message: err.message,
+//       error: err
+//     });
+//   });
+// }
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+// app.use(function(err, req, res, next) {
+//   res.status(err.status || 500);
+//   res.render('error', {
+//     message: err.message,
+//     error: {}
+//   });
+// });
+
+
+app.listen(3000, function () {
+    console.log(`Server up and running at http://localhost:${process.env.PORT || 3000}`);
 });
-
-
-module.exports = app;
