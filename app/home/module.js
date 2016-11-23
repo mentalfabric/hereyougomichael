@@ -6,7 +6,7 @@ angular.module('home')
         .state('home', {
           url: '/home',
           controller: 'HomeCtrl',
-          templateUrl: 'views/home.html',
+          templateUrl: '../views/home.html',
           controllerAs: 'home'
         });
   });
