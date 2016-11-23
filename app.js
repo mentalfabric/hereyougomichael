@@ -22,14 +22,10 @@ var express = require('express'),
     methodOverride = require('method-override'),
     app = express();
 
-var users = require('./routes/users');
 var guests = require('./routes/guests');
 var tables = require('./routes/tables');
 
-
 var app = express();
-
-
 
 //View rendering, you can rip this out if your creating an API
 app.use(methodOverride('_method'));
@@ -41,42 +37,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
-app.use('/users', users);
 app.use('/guests', guests);
 app.use('/tables', tables);
-
-
-// catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   var err = new Error('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
-
-// error handlers
-
-// development error handler
-// will print stacktrace
-// if (app.get('env') === 'development') {
-//   app.use(function(err, req, res, next) {
-//     res.status(err.status || 500);
-//     res.render('error', {
-//       message: err.message,
-//       error: err
-//     });
-//   });
-// }
-
-// production error handler
-// no stacktraces leaked to user
-// app.use(function(err, req, res, next) {
-//   res.status(err.status || 500);
-//   res.render('error', {
-//     message: err.message,
-//     error: {}
-//   });
-// });
-
 
 app.listen(3000, function () {
     console.log(`Server up and running at http://localhost:${process.env.PORT || 3000}`);

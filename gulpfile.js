@@ -77,7 +77,8 @@ gulp.task('js-deps', function () {
 
 gulp.task('less', function () {
   gulp.src([
-      './less/app.less' //main entry point for styles. All other sheets should be included here.
+      './less/app.less',
+      './css/*.css' //main entry point for styles. All other sheets should be included here.
     ])
     .pipe(plumber())
     .pipe(less())

@@ -1,1 +1,29 @@
-<h1>{{home.helloWorld}}</h1>
+<div class="container Home">
+  <div class="row header">
+    <div class="col-xs-10 col-xs-offset-1">
+      <p>Robs' Kebab Palace</p>
+      <p>Best damn Kebabs you'll eva have.</p>
+      <img src="" alt="Logo" class="logo">
+    </div>
+  </div>
+  <div class="row list_section">
+    <div class="col-xs-12 col-md-4 table_border">
+      <h1>Guest Name</h1>
+      <ul>
+        <li ng-repeat="people in home.customersWaiting track by $index" class="list">{{people.name}}</li>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-md-4 table_border">
+      <h1>Table</h1>
+      <ul>
+        <li ng-repeat="tables in home.tables track by $index" class="list">{{tables.tableId}}</li>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-md-4 table_border">
+      <h1>Some Crap</h1>
+      <ul>
+        <li ng-repeat="tables in home.tables track by $index" class="list">{{tables.tableId}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

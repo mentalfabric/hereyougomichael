@@ -7,6 +7,7 @@ angular.module('home')
           url: '/home',
           controller: 'HomeCtrl',
           templateUrl: '../views/home.html',
-          controllerAs: 'home'
+          controllerAs: 'home',
+          css: '../less/home.less'
         });
   });
