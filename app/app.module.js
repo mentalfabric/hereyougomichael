@@ -1,7 +1,8 @@
 angular.module('app', [
     "ui.bootstrap",
     'ui.router',
-    'home'
+    'home',
+    'restaurant'
 ])
     .config(function ($urlRouterProvider, $stateProvider) {
         $urlRouterProvider.otherwise('/home');
